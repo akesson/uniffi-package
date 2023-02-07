@@ -12,6 +12,7 @@ use cargo_metadata::Metadata;
 pub struct Configuration {
     pub dir: Utf8PathBuf,
     pub package: String,
+    pub udl_file: Utf8PathBuf,
     pub release: bool,
     pub manifest_path: Utf8PathBuf,
     pub swift: UniFFISwift,
@@ -34,10 +35,11 @@ impl Configuration {
         let mut dir = package.manifest_path.clone();
         dir.pop();
 
-        let UniFFI { swift } = UniFFI::parse(&package.metadata)?;
+        let UniFFI { swift, udl_file } = UniFFI::parse(&package.metadata)?;
         Ok(Self {
             dir,
             package: package.name.clone(),
+            udl_file,
             release: cli.release,
             manifest_path,
             swift,
