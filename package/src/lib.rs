@@ -8,7 +8,7 @@ use anyhow::Result;
 pub use conf::Cli;
 
 use crate::{
-    cmd::{bindgen, cargo, lipo, xcodebuild},
+    cmd::{bindgen, cargo, lipo, swift_package, xcodebuild},
     conf::Configuration,
 };
 
@@ -26,5 +26,6 @@ pub fn run(cli: Cli) -> Result<()> {
     bindgen::run(&conf)?;
     let libs = lipo::run(&conf)?;
     xcodebuild::run(&conf, libs)?;
+    swift_package::run(&conf)?;
     Ok(())
 }

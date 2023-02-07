@@ -11,8 +11,8 @@ use cargo_metadata::Metadata;
 #[derive(Debug)]
 pub struct Configuration {
     pub dir: Utf8PathBuf,
-    pub cargo_package: String,
-    pub lib_name: String,
+    pub cargo_package_name: String,
+    pub cargo_lib_target_name: String,
     pub udl_file: Utf8PathBuf,
     /// the name of the produced package
     pub package_name: String,
@@ -52,8 +52,8 @@ impl Configuration {
         let package_name = udl_file.file_stem().unwrap().to_string();
         Ok(Self {
             dir,
-            cargo_package: package.name.clone(),
-            lib_name,
+            cargo_package_name: package.name.clone(),
+            cargo_lib_target_name: lib_name,
             udl_file,
             package_name,
             profile: profile.to_string(),

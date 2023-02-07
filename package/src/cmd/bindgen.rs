@@ -17,15 +17,23 @@ pub fn run(conf: &Configuration) -> Result<()> {
         conf.udl_file.as_ref(),
     ];
     super::run_cargo(&args)?;
+    let name = &conf.package_name;
     fs_err::create_dir("target/uniffi/include")?;
     fs_err::rename(
-        format!("target/uniffi/{}.h", &conf.package_name),
-        format!("target/uniffi/include/{}.h", &conf.package_name),
+        format!("target/uniffi/{name}.h"),
+        format!("target/uniffi/include/{name}.h"),
     )?;
     fs_err::rename(
-        format!("target/uniffi/{}.modulemap", &conf.package_name),
-        format!("target/uniffi/include/{}.modulemap", &conf.package_name),
+        format!("target/uniffi/{name}.modulemap"),
+        format!("target/uniffi/include/{name}.modulemap"),
     )?;
+
+    fs_err::create_dir_all(format!("target/uniffi/{name}/Sources"))?;
+    fs_err::rename(
+        format!("target/uniffi/{name}.swift"),
+        format!("target/uniffi/{name}/Sources/{name}.swift"),
+    )?;
+
     Ok(())
 }
 

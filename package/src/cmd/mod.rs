@@ -5,6 +5,7 @@ use yansi::Paint;
 pub mod bindgen;
 pub mod cargo;
 pub mod lipo;
+pub mod swift_package;
 pub mod xcodebuild;
 
 fn run_cargo(args: &[&str]) -> Result<()> {

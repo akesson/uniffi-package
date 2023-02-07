@@ -12,7 +12,8 @@ pub fn run(conf: &Configuration, libs: Vec<String>) -> Result<()> {
         args.push(&header);
     }
 
-    let out = format!("target/uniffi/{}.xcframework", conf.package_name);
+    let name = &conf.package_name;
+    let out = format!("target/uniffi/{name}/{name}.xcframework");
     args.push("-output");
     args.push(&out);
 
