@@ -11,6 +11,7 @@
 		C35358D729923B6F00076A8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35358D629923B6F00076A8B /* ContentView.swift */; };
 		C35358D929923B7000076A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C35358D829923B7000076A8B /* Assets.xcassets */; };
 		C35358DD29923B7000076A8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C35358DC29923B7000076A8B /* Preview Assets.xcassets */; };
+		C371FCFD2992B4EE002CF084 /* Mobile in Frameworks */ = {isa = PBXBuildFile; productRef = C371FCFC2992B4EE002CF084 /* Mobile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		C35358D829923B7000076A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C35358DA29923B7000076A8B /* uniffi_package.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = uniffi_package.entitlements; sourceTree = "<group>"; };
 		C35358DC29923B7000076A8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C371FCFA2992B4DE002CF084 /* Mobile.package */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Mobile.package; path = "../rust-lib/Mobile.package"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C371FCFD2992B4EE002CF084 /* Mobile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +39,7 @@
 		C31A2B3E2992459700F89055 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				C371FCFA2992B4DE002CF084 /* Mobile.package */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -46,6 +50,7 @@
 				C31A2B3E2992459700F89055 /* Packages */,
 				C35358D329923B6F00076A8B /* uniffi-package */,
 				C35358D229923B6F00076A8B /* Products */,
+				C371FCFB2992B4EE002CF084 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +82,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C371FCFB2992B4EE002CF084 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,6 +105,9 @@
 			dependencies = (
 			);
 			name = "uniffi-package";
+			packageProductDependencies = (
+				C371FCFC2992B4EE002CF084 /* Mobile */,
+			);
 			productName = "uniffi-package";
 			productReference = C35358D129923B6F00076A8B /* uniffi-package.app */;
 			productType = "com.apple.product-type.application";
@@ -358,6 +373,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C371FCFC2992B4EE002CF084 /* Mobile */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Mobile;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C35358C929923B6F00076A8B /* Project object */;
 }
