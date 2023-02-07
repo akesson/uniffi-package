@@ -11,5 +11,8 @@ fn main() {
     }
 
     let args = Cli::parse_from(&args);
-    crate::run(args).unwrap();
+    if let Err(e) = crate::run(args) {
+        eprintln!("{:?}", e);
+        std::process::exit(1);
+    }
 }
