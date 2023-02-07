@@ -7,7 +7,7 @@ pub fn run(conf: &Configuration) -> Result<()> {
 }
 
 fn create_package_swift(conf: &Configuration) -> Result<()> {
-    let name = &conf.package_name;
+    let name = &conf.module_name;
     let contents = format!(
         r###"// swift-tools-version:5.7
 import PackageDescription

@@ -12,7 +12,7 @@ pub fn run(conf: &Configuration, libs: Vec<String>) -> Result<()> {
         args.push(&header);
     }
 
-    let name = &conf.package_name;
+    let name = &conf.module_name;
     let out = format!("{name}.package/{name}.xcframework");
     args.push("-output");
     args.push(&out);

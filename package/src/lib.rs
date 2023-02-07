@@ -21,7 +21,7 @@ pub fn run(cli: Cli) -> Result<()> {
     if Path::new(&out).exists() {
         fs_err::remove_dir_all(&out)?;
     }
-    let pack = format!("{}.package", &conf.package_name);
+    let pack = format!("{}.package", &conf.module_name);
     if Path::new(&pack).exists() {
         fs_err::remove_dir_all(&pack)?;
     }
