@@ -26,7 +26,8 @@ let package = Package(
 		),
 		.target(
 			name: "{name}Lib",
-			dependencies: ["{name}"]
+			dependencies: ["{name}"],
+			cxxSettings: [.headerSearchPath("Headers")]
 		)
 	]
 )
