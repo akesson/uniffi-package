@@ -28,10 +28,10 @@ pub fn run(conf: &Configuration) -> Result<()> {
         format!("target/uniffi/include/{name}.modulemap"),
     )?;
 
-    fs_err::create_dir_all(format!("target/uniffi/{name}/Sources"))?;
+    fs_err::create_dir_all(format!("{name}.package/Sources/{name}Lib"))?;
     fs_err::rename(
         format!("target/uniffi/{name}.swift"),
-        format!("target/uniffi/{name}/Sources/{name}.swift"),
+        format!("{name}.package/Sources/{name}Lib/{name}.swift"),
     )?;
 
     Ok(())

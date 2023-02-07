@@ -2,7 +2,6 @@ use crate::conf::Configuration;
 use anyhow::Result;
 
 pub fn run(conf: &Configuration) -> Result<()> {
-    fs_err::create_dir_all(format!("target/uniffi/{}", &conf.package_name))?;
     create_package_swift(conf)?;
     Ok(())
 }
@@ -34,6 +33,6 @@ let package = Package(
 "###
     );
 
-    fs_err::write(format!("target/uniffi/{name}/Package.swift"), contents)?;
+    fs_err::write(format!("{name}.package/Package.swift"), contents)?;
     Ok(())
 }

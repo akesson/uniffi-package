@@ -7,3 +7,4 @@ Cargo.lock
 
 ## User settings
 xcuserdata/
+*.package
