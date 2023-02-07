@@ -33,9 +33,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C31A2B3E2992459700F89055 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		C35358C829923B6F00076A8B = {
 			isa = PBXGroup;
 			children = (
+				C31A2B3E2992459700F89055 /* Packages */,
 				C35358D329923B6F00076A8B /* uniffi-package */,
 				C35358D229923B6F00076A8B /* Products */,
 			);
