@@ -49,7 +49,7 @@ impl Configuration {
         dir.pop();
 
         let UniFFI { swift, udl_file } = UniFFI::parse(&package.metadata)?;
-        let package_name = udl_file.with_extension("").to_string();
+        let package_name = udl_file.file_stem().unwrap().to_string();
         Ok(Self {
             dir,
             cargo_package: package.name.clone(),
