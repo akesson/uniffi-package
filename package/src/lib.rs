@@ -8,7 +8,7 @@ use anyhow::Result;
 pub use conf::Cli;
 
 use crate::{
-    cmd::{bindgen, cargo},
+    cmd::{bindgen, cargo, lipo},
     conf::Configuration,
 };
 
@@ -18,5 +18,6 @@ pub fn run(cli: Cli) -> Result<()> {
     env::set_current_dir(&conf.dir)?;
     cargo::build(&conf)?;
     bindgen::run(&conf)?;
+    lipo::run(&conf)?;
     Ok(())
 }

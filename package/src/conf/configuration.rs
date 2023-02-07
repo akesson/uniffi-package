@@ -4,16 +4,20 @@ use crate::{
 };
 
 use super::{UniFFI, UniFFISwift};
-use anyhow::{Context, Result};
+use anyhow::{anyhow, Context, Result};
 use camino::Utf8PathBuf;
 use cargo_metadata::Metadata;
 
 #[derive(Debug)]
 pub struct Configuration {
     pub dir: Utf8PathBuf,
-    pub package: String,
+    pub cargo_package: String,
+    pub lib_name: String,
     pub udl_file: Utf8PathBuf,
+    /// the name of the produced package
+    pub package_name: String,
     pub release: bool,
+    pub profile: String,
     pub manifest_path: Utf8PathBuf,
     pub swift: UniFFISwift,
 }
@@ -32,14 +36,27 @@ impl Configuration {
             anyhow::bail!("Could not find root package in metadata");
         };
 
+        let lib_name = package
+            .targets
+            .iter()
+            .find(|t| t.kind.contains(&"staticlib".to_string()))
+            .ok_or_else(|| anyhow!("Could not find a staticlib target"))?
+            .name
+            .clone();
+
+        let profile = if cli.release { "release" } else { "debug" };
         let mut dir = package.manifest_path.clone();
         dir.pop();
 
         let UniFFI { swift, udl_file } = UniFFI::parse(&package.metadata)?;
+        let package_name = udl_file.with_extension("").to_string();
         Ok(Self {
             dir,
-            package: package.name.clone(),
+            cargo_package: package.name.clone(),
+            lib_name,
             udl_file,
+            package_name,
+            profile: profile.to_string(),
             release: cli.release,
             manifest_path,
             swift,

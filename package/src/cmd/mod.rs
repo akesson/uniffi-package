@@ -5,12 +5,16 @@ use yansi::Paint;
 pub mod bindgen;
 pub mod cargo;
 pub mod lipo;
-mod xcodebuild;
+pub mod xcodebuild;
 
 fn run_cargo(args: &[&str]) -> Result<()> {
-    let mut cmd = Command::new("cargo").args(args).spawn()?;
+    run("cargo", args)
+}
+
+fn run(program: &str, args: &[&str]) -> Result<()> {
+    let mut cmd = Command::new(program).args(args).spawn()?;
     let status = cmd.wait()?;
-    let cmd = Paint::new(format!("cargo {}", args.join(" "))).dimmed();
+    let cmd = Paint::new(format!("{} {}", program, args.join(" "))).dimmed();
     if status.success() {
         println!("{} finished {}", Paint::green("      UniFFI").bold(), cmd);
         Ok(())
