@@ -22,3 +22,6 @@ uniffi_swiftpkg_gen = "0.2"
 
 [features]
 cli = ["uniffi/cli"]
+
+[package.metadata.swift]
+release-optimize-std-lib = true

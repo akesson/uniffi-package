@@ -1,2 +1,6 @@
 [workspace]
 members = ["package", "example/rust-lib"]
+default-members = ["package"]
+
+# [workspace.metadata.swift]
+# release-optimize-std-lib = true
