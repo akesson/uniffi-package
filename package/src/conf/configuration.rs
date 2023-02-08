@@ -39,8 +39,8 @@ impl Configuration {
         let lib_name = package
             .targets
             .iter()
-            .find(|t| t.kind.contains(&"staticlib".to_string()))
-            .ok_or_else(|| anyhow!("Could not find a staticlib target"))?
+            .find(|t| t.kind.contains(&"cdylib".to_string()))
+            .ok_or_else(|| anyhow!("Could not find a cdylib target"))?
             .name
             .clone();
 
