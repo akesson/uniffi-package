@@ -7,7 +7,7 @@ Cargo.lock
 
 ## User settings
 xcuserdata/
-*.package
+# *.package
 
 # Swift Package Manager
 
