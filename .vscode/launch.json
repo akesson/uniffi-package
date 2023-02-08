@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug swift-cmd (example/swift-cmd)",
+      "program": "${workspaceFolder:uniffi-package}/example/swift-cmd/.build/debug/swift-cmd",
+      "args": [],
+      "cwd": "${workspaceFolder:uniffi-package}/example/swift-cmd",
+      "preLaunchTask": "swift: Build Debug swift-cmd (example/swift-cmd)"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Release swift-cmd (example/swift-cmd)",
+      "program": "${workspaceFolder:uniffi-package}/example/swift-cmd/.build/release/swift-cmd",
+      "args": [],
+      "cwd": "${workspaceFolder:uniffi-package}/example/swift-cmd",
+      "preLaunchTask": "swift: Build Release swift-cmd (example/swift-cmd)"
+    }
+  ]
+}

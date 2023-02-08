@@ -1,0 +1,4 @@
+namespace Mobile {
+    string rust_greeting(string name);
+};
+

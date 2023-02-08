@@ -1,1 +1,19 @@
-/target
+target
+xcode 
+
+Cargo.lock
+
+.DS_Store
+
+## User settings
+xcuserdata/
+*.package
+
+# Swift Package Manager
+
+.build/
+Packages/
+DerivedData/
+.swiftpm/config/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
