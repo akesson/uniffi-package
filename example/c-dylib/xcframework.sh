@@ -5,30 +5,31 @@ set -e
 rm -rf build
 mkdir build
 
-clang -dynamiclib libmymath.c -o build/libmymath.1.dylib -current_version 1.0 -compatibility_version 1.0
+# clang -dynamiclib libmymath.c -o build/libmymath.1.dylib -current_version 1.0 -compatibility_version 1.0
+clang libmymath.c -o build/libmymath.a --emit-static-lib
 
-clang app.c -o build/app build/libmymath.1.dylib
+clang app.c -o build/app build/libmymath.a
 
-echo
-echo "########## deps [otool -L app]"
-echo
+# echo
+# echo "########## deps [otool -L app]"
+# echo
 
-otool -L build/app
+# otool -L build/app
 
 
-echo
-echo "########## symbols [nm libmymath.1.dylib]:"
-echo
+# echo
+# echo "########## symbols [nm libmymath.a]:"
+# echo
 
-nm build/libmymath.1.dylib
+# nm build/libmymath.a
 
-echo
-echo "########## output [./app]:"
-echo
+# echo
+# echo "########## output [./app]:"
+# echo
 
-./build/app
+# ./build/app
 
 xcodebuild -create-xcframework \
--library build/libmymath.1.dylib \
+-library build/libmymath.a \
 -headers include/ \
 -output ./build/libmymath.xcframework
