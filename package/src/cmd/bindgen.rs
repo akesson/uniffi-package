@@ -43,7 +43,7 @@ pub fn run(conf: &Configuration) -> Result<()> {
     fs_err::copy(&src_module, &dest_include_module)?;
     fs_err::rename(&src_module, &dest_module_file)?;
 
-    fs_err::rename(&src_swift_, &dest_swift_file_)?;
+    fs_err::copy(&src_swift_, &dest_swift_file_)?;
 
     Ok(())
 }
